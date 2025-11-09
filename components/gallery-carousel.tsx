@@ -47,7 +47,7 @@ const galleryItems: GalleryItem[] = [
     title: "Faculty Expertise",
     description: "World-class researchers",
     image:
-      "https://mems.iiti.ac.in/static/media/Graphical_Abstract%20%20MEMS%20faculty%20group-JP.20a9509960bac459f55d.jpg",
+      "https://media.licdn.com/dms/image/v2/D4D22AQEr-kdLKSeWtw/feedshare-shrink_800/B4DZlhhIVzGgAg-/0/1758277705500?e=1764201600&v=beta&t=bTI3OW_yfchDhVr1BpHINfxcVpG-RxfaLGp4OA92zrQ",
   },
 ]
 
