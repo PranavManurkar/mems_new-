@@ -3,12 +3,14 @@
 import Navbar from "@/components/navbar"
 import NewsCarousel from "@/components/news-carousel"
 import HODDesk from "@/components/hod-desk"
-import { Play } from "lucide-react"
-import { useState } from "react"
 import GalleryCarousel from "@/components/gallery-carousel"
 
 export default function Home() {
-  const [showVideo, setShowVideo] = useState(false)
+  // chosen video: IIT Indore campus tour (used as MEMS stand-in)
+  const VIDEO_ID = "NbGRTRocs9c"
+  const ytSrc =
+    `https://www.youtube.com/embed/${VIDEO_ID}` +
+    `?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&rel=0&controls=1&modestbranding=1`
 
   return (
     <main className="min-h-screen bg-white">
@@ -87,48 +89,36 @@ export default function Home() {
       {/* HOD's Desk */}
       <HODDesk />
 
+      {/* Department Overview: always-playing tinted video */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">Department Overview</h2>
 
-          <div className="relative rounded-xl overflow-hidden shadow-xl h-96 md:h-[500px] bg-black group cursor-pointer border-4 border-primary">
-            <img
-              src="https://mems.iiti.ac.in/static/media/kusenter.20d89cfec7c959d3e9b8.jpg"
-              alt="Department Video"
-              className="w-full h-full object-cover group-hover:opacity-75 transition-opacity duration-300"
+          <div className="relative rounded-xl overflow-hidden shadow-xl h-96 md:h-[500px] bg-black border-4 border-primary">
+            {/* Always-playing YouTube iframe (muted -> allows autoplay). */}
+            <iframe
+              className="w-full h-full"
+              src={ytSrc}
+              title="Department Overview - IIT Indore"
+              frameBorder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
             />
-            <button
-              onClick={() => setShowVideo(true)}
-              className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors duration-300"
-            >
-              <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Play className="w-10 h-10 text-primary fill-primary" />
-              </div>
-            </button>
-          </div>
 
-          {showVideo && (
-            <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-              <div className="relative w-full max-w-4xl">
-                <button
-                  onClick={() => setShowVideo(false)}
-                  className="absolute -top-10 right-0 text-white text-2xl font-bold hover:scale-110 transition-transform duration-300"
-                >
-                  ✕
-                </button>
-                <iframe
-                  width="100%"
-                  height="500"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Department Overview"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="rounded-lg"
-                />
+            {/* Tint overlay: change bg-primary/35 to any color/opacity you like */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-primary/35 mix-blend-multiply pointer-events-none"
+            />
+
+            {/* gradient + caption (keeps text readable on top of tinted video) */}
+            <div className="absolute inset-0 flex items-end p-6">
+              <div className="bg-gradient-to-t from-black/60 to-transparent rounded-xl p-4 max-w-lg">
+                <h3 className="text-white text-lg md:text-xl font-bold">Department of MEMS — Overview</h3>
+                <p className="text-white/90 text-sm md:text-base">Highlights, facilities and campus life at IIT Indore.</p>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
