@@ -316,7 +316,7 @@ export default function People() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-16">
+      <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Our People</h2>
           <p className="text-xl text-blue-100">Meet our dedicated faculty, staff, and students</p>
