@@ -28,7 +28,7 @@ const galleryItems: GalleryItem[] = [
     id: 3,
     title: "Testing Lab",
     description: "Quality assurance",
-    image: "https://mems.iiti.ac.in/static/media/statimg2.1a3dbf956795c3a54b27.jpg",
+    image: "https://people.iiti.ac.in/~dkr/wp-content/uploads/2019/10/Fume-Hood-2.jpg",
   },
   {
     id: 4,
