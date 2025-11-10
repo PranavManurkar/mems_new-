@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,13 +23,14 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             {/* IIT Logo */}
-            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-              <svg className="w-9 h-9 text-primary" viewBox="0 0 100 100" fill="currentColor">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" />
-                <text x="50" y="55" textAnchor="middle" fontSize="20" fontWeight="bold" fill="currentColor">
-                  IIT
-                </text>
-              </svg>
+            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                <Image
+                src="/logo.png"
+                alt="IIT Indore Logo"
+                width={64}
+                height={64}
+                className="w-16 h-16"
+                />
             </div>
 
             {/* Bilingual Header */}
