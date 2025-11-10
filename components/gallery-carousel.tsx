@@ -15,7 +15,7 @@ const galleryItems: GalleryItem[] = [
     id: 1,
     title: "Advanced Lab",
     description: "State-of-the-art research facilities",
-    image: "https://mems.iiti.ac.in/static/media/statimg.a4ca7edcc8fe821c8ea5.jpg",
+    image: "https://files-prod.tii.ae/inline-images/Projectile%20Launcher%20%28Gas%20Gun%29%20-%20unique%20to%20the%20region.jpg",
   },
   {
     id: 2,
