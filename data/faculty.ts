@@ -1,0 +1,270 @@
+import { Person } from "@/app/people/type";
+
+// object array containing people data
+export const faculty: Person[] = [
+  {
+    id: 1,
+    name: "Prof. Ajay Kumar Kushwaha",
+    title: "Head of Department & Associate Professor",
+    specialization: "Materials Processing / Nanomaterials",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/AKKsir.jpeg",
+    email: "akk@iiti.ac.in",
+    office: "1D-610",
+    phone: "+91-731-6603250",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.co.in/citations?hl=en&user=1ck-NV0AAAAJ" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Dr-Ajay-Kushwaha-2" }
+    ],
+  },
+  {
+    id: 2,
+    name: "Prof. Rupesh S. Devan",
+    title: "Professor",
+    specialization: "Metallurgical Engineering / Energy Materials",
+    category: "faculty",
+    field: "metallurgy",
+    image: "/faculty/prof2.jpg",
+    email: "rupesh@iiti.ac.in",
+    office: "1D-414",
+    phone: "+91-731-6603244",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=UF9U1IkAAAAJ" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Rupesh-Devan" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/60142" }
+    ],
+  },
+  {
+    id: 3,
+    name: "Prof. Parasharam M. Shirage",
+    title: "Professor",
+    specialization: "Advanced Functional & Energy Materials",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/shirage.jpg",
+    email: "pmshirage@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6603330",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.co.in/citations?hl=en&user=hf2x04QAAAAJ" },
+      { label: "Personal page", url: "https://people.iiti.ac.in/~pmshirage/" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/62178" }
+    ],
+  },
+  {
+    id: 4,
+    name: "Prof. Mrigendra Dubey",
+    title: "Associate Professor",
+    specialization: "Soft Materials / Nanomaterials",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof11.jpg",
+    email: "mdubey@iiti.ac.in",
+    office: "1D-412",
+    phone: "+91-731-6603258",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=9P83G5AAAAAJ" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Mrigendra-Dubey" },
+      { label: "ORCID", url: "https://orcid.org/0000-0001-7949-782X" },
+      { label: "Personal / Group", url: "https://drdubey.wixsite.com/iiti" }
+    ],
+  },
+  {
+    id: 5,
+    name: "Prof. Vinod Kumar",
+    title: "Associate Professor",
+    specialization: "Phase equilibria / Diffusion",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/vinod.jpg",
+    email: "vkt@iiti.ac.in",
+    office: "1D-412",
+    phone: "+91-731-6603251",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=n782qToAAAAJ" },
+      { label: "People page", url: "https://people.iiti.ac.in/~vkt/" }
+    ],
+  },
+  {
+    id: 6,
+    name: "Prof. Sunil Kumar",
+    title: "Associate Professor",
+    specialization: "Surface engineering / Corrosion",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof13.jpg",
+    email: "sunil@iiti.ac.in",
+    office: "1D-416 (POD-1D)",
+    phone: "+91-731-6603281",
+    profiles: [
+      { label: "People page", url: "https://people.iiti.ac.in/~sunil/" },
+      { label: "Group / Lab", url: "https://people.iiti.ac.in/~sunil/group.php" }
+    ],
+  },
+  {
+    id: 7,
+    name: "Prof. K. V. Vamsi",
+    title: "Assistant / Associate Professor",
+    specialization: "Computational Materials / Alloy Design",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof18.jpg",
+    email: "kvvamsi@iiti.ac.in",
+    office: "FC 504, Learning Resource Center",
+    phone: "+91-731-6603333",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=ducGUjAAAAAJ" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/K-V-Vamsi" },
+      { label: "Personal", url: "https://kvvamsi20.wixsite.com/vamsi" }
+    ],
+  },
+  {
+    id: 8,
+    name: "Prof. Eswara Prasad Korimilli",
+    title: "Associate Professor",
+    specialization: "Mechanics of Materials / Deformation",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof6.jpg",
+    email: "eswar@iiti.ac.in",
+    office: "POD1D-612",
+    phone: "+91-731-6603280",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.co.in/citations?hl=en&user=LiDYSBQAAAAJ" },
+      { label: "MoM group", url: "https://sites.google.com/view/eswarprasad/home" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/93803" }
+    ],
+  },
+  {
+    id: 9,
+    name: "Dr. Khushubo Devi (Tiwari)",
+    title: "Assistant Professor",
+    specialization: "Materials Science / Soft materials",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/kbu.jpg",
+    email: "khushubo@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6605162",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=sCL9Zl4AAAAJ" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/491337" },
+      { label: "Personal / Lab", url: "https://sites.google.com/view/khushubodevi?usp=sharing" }
+    ],
+  },
+  {
+    id: 10,
+    name: "Prof. Vivek Verma",
+    title: "Assistant Professor",
+    specialization: "Diffusion / Phase transformations",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/vivek.jpeg",
+    email: "vivekv@iiti.ac.in",
+    office: "Not listed",
+    phone: undefined,
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=ElT_W2YAAAAJ" }
+    ],
+  },
+  {
+    id: 11,
+    name: "Dr. Nisheeth Kumar Prasad",
+    title: "Assistant Professor",
+    specialization: "Advanced functional materials / Energy",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof4.jpg",
+    email: "nisheeth@iiti.ac.in",
+    office: "211(h), Hub Building (CITC)",
+    phone: "+91-731-6603175",
+    profiles: [
+      { label: "Personal page", url: "https://sites.google.com/iiti.ac.in/nisheeth/about-me?pli=1" },
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?user=vjypzxYAAAAJ&hl=en" }
+    ],
+  },
+  {
+    id: 12,
+    name: "Dr. Ram Sajeevan Maurya",
+    title: "Assistant Professor",
+    specialization: "Coatings / Thin films / Metallic glasses",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/rsm.jpg",
+    email: "ramsajeevan@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6603202",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=6f8zrTcAAAAJ" },
+      { label: "Lab page", url: "https://ramsajeevan.wixsite.com/amorphous-metals-lab" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Ram-Maurya-7" }
+    ],
+  },
+  {
+    id: 13,
+    name: "Prof. Sumanta Samal",
+    title: "Associate Professor",
+    specialization: "Microstructure modelling / Alloys",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/samal.jpg",
+    email: "sumanta@iiti.ac.in",
+    office: "Chromium Building, Room 411",
+    phone: "+91-731-6603252",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?hl=en&user=_ovvQcQAAAAJ" },
+      { label: "People page", url: "https://iiti.ac.in/people/~sumanta/index.html" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Sumanta-Samal" }
+    ],
+  },
+  {
+    id: 14,
+    name: "Dr. Dhirendra K. Rai",
+    title: "Associate Professor",
+    specialization: "Energy & environmental materials",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/prof3.jpg",
+    email: "dkrai@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6603278",
+    profiles: [
+      { label: "People page", url: "http://people.iiti.ac.in/~dkr/" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/93795" }
+    ],
+  },
+  {
+    id: 15,
+    name: "Dr. Ranjith Kumar Poobalan",
+    title: "Assistant Professor",
+    specialization: "MXenes / 2D materials / Energy",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/ranjit_sir.jpg",
+    email: "ranjith@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6605597",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.co.in/citations?user=iTe5x74AAAAJ&hl=en" },
+      { label: "People page", url: "https://iiti.ac.in/people/~rkp/" }
+    ],
+  },
+  {
+    id: 16,
+    name: "Dr. Hemant Borkar",
+    title: "Assistant Professor",
+    specialization: "Lightweight alloys / Deformation",
+    category: "faculty",
+    field: "materials",
+    image: "/faculty/hemanth.jpg",
+    email: "h.borkar@iiti.ac.in",
+    office: "Not listed",
+    phone: "+91-731-6603295",
+    profiles: [
+      { label: "Google Scholar", url: "https://scholar.google.co.in/citations?hl=en&user=siZP-XoAAAAJ" },
+      { label: "ResearchGate", url: "https://www.researchgate.net/profile/Hemant-Borkar" },
+      { label: "IRINS", url: "https://iiti.irins.org/profile/93801" }
+    ],
+  },
+];
