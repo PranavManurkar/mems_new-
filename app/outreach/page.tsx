@@ -20,39 +20,40 @@ export default function Outreach() {
 
   // Replace image names below with files you place inside /public/images/
   const consultancyLogos = [
-    "/images/ve.png",
-    "/images/um.png",
-    "/images/rc.png",
-    "/images/mra.png",
-    "/images/tf.png",
+    "/volvo.png",
+    "Logo_UshaMartin.png",
+    "raychem-logo.png",
+    "moyra.jpg",
+    "technofast-og.jpg",
   ]
 
   const footprintLogos = [
-    "/images/accenture.png",
-    "/images/Goldman_Sachs.png",
-    "/images/Razorpay.jpg",
-    "/images/BjxmtD.webp",
-    "/images/axxela.png",
-    "/images/deolitte.png",
-    "/images/dolot.jpeg",
-    "/images/faxoc.png",
-    "/images/groww.png",
-    "/images/media.jpeg",
-    "/images/sahaj.png",
-    "/images/tredence.png",
-    "/images/tresca.jpeg",
-    "/images/unity.jpeg",
-    "/images/tata.png",
-    "/images/deqode.png",
-    "/images/mecon.png",
-    "/images/adani.png",
-    "/images/mittal.png",
-    "/images/regain.png",
-  ]
+    "/mainpageimages/accenture.png",
+    "/mainpageimages/Goldman_Sachs.png",
+    "/mainpageimages/Razorpay.jpg",
+    "/mainpageimages/BjxmtD.webp",
+    "/mainpageimages/axxela.png",
+    "/mainpageimages/deolitte.png",
+    "/mainpageimages/dolot.jpeg",
+    "/mainpageimages/faxoc.png",
+    "/mainpageimages/groww.png",
+    "/mainpageimages/media.jpeg",
+    "/mainpageimages/sahaj.png",
+    "/mainpageimages/tredence.png",
+    "/mainpageimages/tresca.jpeg",
+    "/mainpageimages/unity.jpeg",
+    "/mainpageimages/tata.png",
+    "/mainpageimages/deqode.png",
+    "/mainpageimages/mecon.png",
+    "/mainpageimages/adani.png",
+    "/mainpageimages/mittal.png",
+    "/mainpageimages/regain.png",
+  ];
+
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-16">
@@ -65,7 +66,7 @@ export default function Outreach() {
       {/* Outreach Programs (unchanged, kept top) */}
       <section className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <h2 className="section-title">Our Outreach Initiatives</h2>
+          <h2 className="section-title text-2xl font-bold text-primary mb-2">Our Outreach Initiatives</h2>
 
           <div className="grid md:grid-cols-2 gap-8 mt-6">
             {[
@@ -126,24 +127,22 @@ export default function Outreach() {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between gap-4 mb-6">
-            <h2 className="section-title">Industry · Students · Collaboration</h2>
+            <h2 className="section-title text-2xl font-bold text-primary mb-2">Industry · Students · Collaboration</h2>
 
             {/* tabs */}
             <div className="flex gap-2 bg-white rounded-full p-1 border border-gray-200">
               <button
                 onClick={() => setTab(1)}
-                className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
-                  tab === 1 ? "bg-primary text-white shadow" : "text-primary"
-                }`}
+                className={`px-4 py-1 rounded-full text-sm font-semibold transition ${tab === 1 ? "bg-primary text-white shadow" : "text-primary"
+                  }`}
                 aria-pressed={tab === 1}
               >
                 Our Students
               </button>
               <button
                 onClick={() => setTab(2)}
-                className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
-                  tab === 2 ? "bg-primary text-white shadow" : "text-primary"
-                }`}
+                className={`px-4 py-1 rounded-full text-sm font-semibold transition ${tab === 2 ? "bg-primary text-white shadow" : "text-primary"
+                  }`}
                 aria-pressed={tab === 2}
               >
                 Work With Us
@@ -163,90 +162,172 @@ export default function Outreach() {
                 className="grid lg:grid-cols-3 gap-6"
               >
                 {/* BTech card */}
-                <motion.article
-                  variants={cardVariants}
-                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-xl font-semibold text-primary mb-3">B.Tech (Metallurgy & Materials)</h3>
+              <motion.article
+  variants={cardVariants}
+  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+>
+  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+    B.Tech (Metallurgy & Materials)
+  </h3>
 
-                  <div className="flex gap-4 items-start">
-                    <img src="/images/convocation.jpg" alt="convocation" className="w-28 h-20 object-cover rounded" />
-                    <div className="text-gray-700 text-sm">
-                      <p className="mb-2">
-                        Our BTech program is rigorous: ~146.5 credits, 49 courses and 12 labs. The curriculum emphasizes practical
-                        lab experience and industry-linked projects (7th semester project placements).
-                      </p>
-                      <ul className="list-disc ml-5 mt-2 text-sm">
-                        <li>Strong lab exposure (12 labs)</li>
-                        <li>Industry-linked project opportunities</li>
-                        <li>Active student participation in national competitions</li>
-                      </ul>
-                    </div>
-                  </div>
-                </motion.article>
+  {/* IMAGE ON TOP – RESPONSIVE & LARGE */}
+  <div className="w-full flex justify-center mb-4">
+    <img
+      src="/news/convocation.jpg"
+      alt="convocation"
+      className="
+        w-full 
+        max-w-sm        /* prevents over-stretching on large screens */
+        h-40 sm:h-48 md:h-56 
+        object-cover 
+        rounded-lg
+      "
+    />
+  </div>
 
-                {/* MTech card */}
-                <motion.article
-                  variants={cardVariants}
-                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-xl font-semibold text-primary mb-3">M.Tech (Materials Science & Engineering)</h3>
+  {/* TEXT BELOW IMAGE */}
+  <div className="text-gray-700 text-sm">
+    <p className="mb-3">
+      Our BTech program is rigorous: ~146.5 credits, 49 courses and 12 labs. The
+      curriculum emphasizes practical laboratory experience and industry-linked
+      projects (including 7th semester project placements).
+    </p>
 
-                  <div className="flex gap-4 items-start">
-                    <div className="text-gray-700 text-sm">
-                      <p className="mb-2">
-                        MTech programs combine theoretical depth with practical labs (typically 9 courses + 4 labs). Graduates are
-                        ready for research and industry roles.
-                      </p>
-                      <ul className="list-disc ml-5 mt-2 text-sm">
-                        <li>Practical, project-driven curriculum</li>
-                        <li>Opportunities for seminars and networking</li>
-                        <li>Close faculty-industry collaboration</li>
-                      </ul>
-                    </div>
-                    <img src="/images/irina.jpg" alt="workshop" className="w-28 h-20 object-cover rounded" />
-                  </div>
-                </motion.article>
+    <ul className="list-disc ml-5 mt-2 text-sm">
+      <li>Strong laboratory exposure (12 labs)</li>
+      <li>Industry-linked project opportunities</li>
+      <li>Active student participation in national competitions</li>
+    </ul>
+  </div>
+</motion.article>
+
+
+               {/* MTech card */}
+<motion.article
+  variants={cardVariants}
+  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+>
+  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+    M.Tech (Materials Science & Engineering)
+  </h3>
+
+  {/* IMAGE ON TOP */}
+  <div className="w-full flex justify-center mb-4">
+    <img
+      src="/news/irina.jpg"
+      alt="workshop"
+      className="
+        w-full 
+        max-w-sm 
+        h-40 sm:h-48 md:h-56 
+        object-cover 
+        rounded-lg
+      "
+    />
+  </div>
+
+  {/* CONTENT */}
+  <div className="text-gray-700 text-sm leading-relaxed">
+    <p className="mb-3">
+      The M.Tech program blends theoretical depth with significant practical laboratory
+      experience. Students complete typically 9 courses and 4 labs, gaining hands-on training
+      along with exposure to research methodologies and industrial practices.
+    </p>
+
+    <ul className="list-disc ml-5 space-y-1">
+      <li>Strong project-driven curriculum integrating practical tools</li>
+      <li>Seminars, workshops and active academic networking opportunities</li>
+      <li>Close research collaboration between faculty, labs and industry partners</li>
+    </ul>
+  </div>
+</motion.article>
+
 
                 {/* PhD card */}
-                <motion.article
-                  variants={cardVariants}
-                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-xl font-semibold text-primary mb-3">PhD</h3>
+<motion.article
+  variants={cardVariants}
+  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+>
+  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+    PhD
+  </h3>
 
-                  <div className="flex gap-4 items-start">
-                    <img src="/images/group_photo1.jpg" alt="group" className="w-28 h-20 object-cover rounded" />
-                    <div className="text-gray-700 text-sm">
-                      <p className="mb-2">
-                        PhD at IIT Indore emphasizes independent research, annual progress reviews and institute-supported
-                        international exposure. Students receive fellowships and participate in research symposia.
-                      </p>
-                      <ul className="list-disc ml-5 mt-2 text-sm">
-                        <li>Institute travel support for conferences</li>
-                        <li>Student-run symposiums and Materials Advantage chapter</li>
-                        <li>Strong industry-relevant research outputs</li>
-                      </ul>
-                    </div>
-                  </div>
-                </motion.article>
+  {/* IMAGE ON TOP */}
+  <div className="w-full flex justify-center mb-4">
+    <img
+      src="/group_photo1.jpg"
+      alt="group"
+      className="
+        w-full 
+        max-w-sm 
+        h-40 sm:h-48 md:h-56 
+        object-cover 
+        rounded-lg
+      "
+    />
+  </div>
+
+  {/* CONTENT */}
+  <div className="text-gray-700 text-sm leading-relaxed">
+    <p className="mb-3">
+      The PhD program at IIT Indore emphasizes independent, research-centric learning with
+      annual performance reviews, multidisciplinary collaborations and access to advanced
+      research facilities. Students receive fellowship support and opportunities for
+      international exposure.
+    </p>
+
+    <ul className="list-disc ml-5 space-y-1">
+      <li>Institute-supported travel grants for national & international conferences</li>
+      <li>Active participation in student-run research symposiums and MA chapter</li>
+      <li>Strong industrial relevance with high-impact research outputs</li>
+    </ul>
+  </div>
+</motion.article>
 
                 {/* Footprints / logos card (full width on small, grid on larger) */}
-                <motion.div variants={cardVariants} className="lg:col-span-3 bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                  <h4 className="text-lg font-semibold text-primary mb-4">Footprints of MEMS — Industry & Recruiters</h4>
+                <motion.div
+                  variants={cardVariants}
+                  className="lg:col-span-3 bg-white rounded-lg p-6 border border-gray-100 shadow-sm min-h-[420px] flex flex-col"
+                >
+                  <h4 className="text-xl font-semibold text-primary mb-6">
+                    Footprints of MEMS — Industry & Recruiters
+                  </h4>
 
-                  <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-4 items-center">
+                  <div
+                    className="
+      grid grid-cols-3 
+      sm:grid-cols-6 
+      md:grid-cols-8 
+      gap-x-6 gap-y-8 
+      items-center
+      flex-grow
+    "
+                  >
                     {footprintLogos.map((src, i) => (
                       <motion.div
                         key={i}
                         variants={logoVariants}
-                        className="flex items-center justify-center p-2 bg-white rounded"
+                        className="
+          flex items-center justify-center 
+          p-3 
+          bg-white 
+          rounded-lg 
+          shadow-md 
+          hover:shadow-lg 
+          transition-shadow 
+          duration-200
+        "
                       >
-                        <img src={src} alt={`logo-${i}`} className="max-h-12 object-contain" />
+                        <img
+                          src={src}
+                          alt={`logo-${i}`}
+                          className="max-h-16 object-contain"
+                        />
                       </motion.div>
                     ))}
                   </div>
                 </motion.div>
+
               </motion.div>
             )}
 
@@ -319,7 +400,7 @@ export default function Outreach() {
       {/* Events (kept as before) */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-primary/5 to-blue-50">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <h2 className="section-title">Upcoming Events</h2>
+          <h2 className="section-title text-2xl font-bold text-primary mb-2">Upcoming Events</h2>
 
           <div className="space-y-6 mt-6">
             {[
@@ -382,7 +463,7 @@ export default function Outreach() {
       </section>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }

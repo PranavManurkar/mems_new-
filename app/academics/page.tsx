@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar"
 export default function Academics() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-10">
@@ -329,7 +329,7 @@ export default function Academics() {
       </section>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }

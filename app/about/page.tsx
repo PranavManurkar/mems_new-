@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar"
 export default function About() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-16">
@@ -119,11 +119,11 @@ export default function About() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      {/* <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-4 md:px-8 text-center">
           <p>&copy; 2025 Department of MEMS, IIT Indore. All rights reserved.</p>
         </div>
-      </footer>
+      </footer> */}
     </main>
   )
 }

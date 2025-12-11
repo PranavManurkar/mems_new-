@@ -10,7 +10,7 @@ import { researchAreas } from "@/data/reasearchArea"    // make sure file name m
 export default function Research() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero */}
       <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-12">
@@ -173,7 +173,7 @@ export default function Research() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }

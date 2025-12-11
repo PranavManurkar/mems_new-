@@ -660,9 +660,9 @@ import Footer from "@/components/Footer"
 export default function PeoplePage() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
+      {/* <Navbar /> */}
       <PeopleGrid />
-      <Footer/>
+      {/* <Footer/> */}
     </main>
   )
 }
