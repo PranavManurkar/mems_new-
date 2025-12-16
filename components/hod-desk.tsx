@@ -9,14 +9,14 @@ export default function HODDesk() {
   return (
     <section className="py-16 bg-gradient-to-r from-primary/10 via-blue-50 to-accent/10 border-b-4 border-primary">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="section-title">HOD's Desk</h2>
+        <h2 className="section-title text-2xl font-bold text-primary mb-2 ml-20">HOD's Desk</h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* HOD Image */}
-          <div className="flex justify-center">
-            <div className="relative w-64 h-80 rounded-xl overflow-hidden shadow-xl border-4 border-primary hover:shadow-2xl transition-shadow duration-300">
+          <div className="flex justify-center md:justify-center">
+            <div className="relative w-72 md:w-96 h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-primary hover:shadow-2xl transition-shadow duration-300">
               <img
-                src="https://mems.iiti.ac.in/static/media/prof20.3a347569c4cf457ecb44.jpeg"
+                src="/faculty/prof20.jpeg"
                 alt="Prof. Ajay Kumar Kushwaha"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
@@ -24,7 +24,7 @@ export default function HODDesk() {
           </div>
 
           {/* HOD Message */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left px-4 md:px-0">
             <h3 className="text-2xl md:text-3xl font-bold text-primary">Prof. Ajay Kumar Kushwaha</h3>
             <p className="text-gray-600 font-semibold text-lg">Head of Department</p>
 

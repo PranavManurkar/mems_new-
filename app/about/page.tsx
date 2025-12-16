@@ -1,8 +1,36 @@
 "use client"
 
 import Navbar from "@/components/navbar"
+import StatisticsSection from "@/components/Stats"
+import { motion } from "framer-motion"
 
 export default function About() {
+  // small framer-motion variants (match Outreach page)
+  const cardVariants = { hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }
+  const logoVariants = { hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1 } }
+
+  const footprintLogos = [
+    "/mainpageimages/accenture.png",
+    "/mainpageimages/Goldman_Sachs.png",
+    "/mainpageimages/Razorpay.jpg",
+    "/mainpageimages/BjxmtD.webp",
+    "/mainpageimages/axxela.png",
+    "/mainpageimages/deolitte.png",
+    "/mainpageimages/dolot.jpeg",
+    "/mainpageimages/faxoc.png",
+    "/mainpageimages/groww.png",
+    "/mainpageimages/media.jpeg",
+    "/mainpageimages/sahaj.png",
+    "/mainpageimages/tredence.png",
+    "/mainpageimages/tresca.jpeg",
+    "/mainpageimages/unity.jpeg",
+    "/mainpageimages/tata.png",
+    "/mainpageimages/deqode.png",
+    "/mainpageimages/mecon.png",
+    "/mainpageimages/adani.png",
+    "/mainpageimages/mittal.png",
+    "/mainpageimages/regain.png",
+  ]
   return (
     <main className="min-h-screen bg-white">
       {/* <Navbar /> */}
@@ -14,6 +42,8 @@ export default function About() {
           <p className="text-xl text-blue-100">Learn more about our department's vision, mission, and achievements</p>
         </div>
       </section>
+
+      
 
       {/* Vision & Mission */}
       <section className="py-16 md:py-20">
@@ -41,6 +71,42 @@ export default function About() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Statistics  */}
+      <StatisticsSection/>
+      {/* Footprints: Industry & Recruiters */}
+      <section className="py-8 md:py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+            className="grid lg:grid-cols-3 gap-6"
+          >
+            <motion.div
+              variants={cardVariants}
+              className="lg:col-span-3 bg-white rounded-lg p-6 border border-gray-100 shadow-sm min-h-[220px] flex flex-col"
+            >
+              <h4 className="text-2xl font-semibold text-primary mb-6">Footprints of MEMS — Industry & Recruiters</h4>
+
+              <div
+                className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-x-6 gap-y-8 items-center flex-grow"
+              >
+                {footprintLogos.map((src, i) => (
+                  <motion.div
+                    key={i}
+                    variants={logoVariants}
+                    className="flex items-center justify-center p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
+                  >
+                    <img src={src} alt={`logo-${i}`} className="max-h-16 object-contain" />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -93,7 +159,7 @@ export default function About() {
       </section>
 
       {/* Research Areas */}
-      <section className="py-16 md:py-20">
+      {/* <section className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <h2 className="section-title">Research Areas</h2>
 
@@ -116,7 +182,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       {/* <footer className="bg-gray-900 text-white py-12">

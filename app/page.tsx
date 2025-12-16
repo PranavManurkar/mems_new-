@@ -91,6 +91,39 @@ function HeroSection() {
 
 // Research Focus Area Component
 function ResearchFocusArea() {
+  const researchAreas = [
+  {
+    title: "Alloys Design, Development & Deformation",
+    desc: "This research area focuses on the scientific design and development of advanced metallic alloys and the detailed study of their deformation behaviour under different mechanical and thermal conditions.",
+    border: "border-primary",
+  },
+  {
+    title: "Diffusion & Phase Transformations",
+    desc: "This area focuses on understanding atomic-scale diffusion processes and phase transformation phenomena that govern microstructural evolution in materials.",
+    border: "border-accent",
+  },
+  {
+    title: "Surface Engineering & Materials Degradation",
+    desc: "This research area focuses on understanding material degradation mechanisms and developing surface modification technologies to improve durability and performance.",
+    border: "border-primary",
+  },
+  {
+    title: "Energy, Environment & Sustainability",
+    desc: "This research area targets the development of sustainable materials and technologies to address global energy and environmental challenges.",
+    border: "border-accent",
+  },
+  {
+    title: "Electronic & Photonic Materials",
+    desc: "This area focuses on the development and characterization of materials for advanced electronic, optoelectronic, and photonic applications.",
+    border: "border-primary",
+  },
+  {
+    title: "Nano & Soft Materials",
+    desc: "This research area focuses on nanoscale and soft matter systems aimed at creating advanced functional materials with tailored properties.",
+    border: "border-accent",
+  },
+];
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-r from-primary/5 to-blue-50 border-b-4 border-primary">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -100,20 +133,23 @@ function ResearchFocusArea() {
           including Materials Processing, Advanced Materials, Metallurgical Engineering, Computational Materials
           Science, and Materials Characterization.
         </p>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary">
-            <h3 className="text-xl font-bold text-primary mb-3">Materials Processing & Characterization</h3>
-            <p className="text-gray-700">
-              Advanced techniques for processing and characterizing novel materials for industrial applications.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-accent">
-            <h3 className="text-xl font-bold text-primary mb-3">Computational Materials Science</h3>
-            <p className="text-gray-700">
-              Computational modeling and simulation of materials behavior and properties.
-            </p>
-          </div>
-        </div>
+       <div className="grid md:grid-cols-2 gap-6">
+  {researchAreas.map((area, index) => (
+    <div
+      key={index}
+      className={`bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 ${area.border}`}
+    >
+      <h3 className="text-xl font-bold text-primary mb-3">
+        {area.title}
+      </h3>
+
+      <p className="text-gray-700 leading-relaxed">
+        {area.desc}
+      </p>
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   )
@@ -145,7 +181,7 @@ function AboutSection() {
 
           <div className="rounded-xl overflow-hidden shadow-xl border-4 border-primary">
             <img
-              src="https://mems.iiti.ac.in/static/media/prof20.3a347569c4cf457ecb44.jpeg"
+              src="/news/convocation.jpg"
               alt="Department"
               className="w-full h-full object-cover"
             />

@@ -35,15 +35,15 @@ export default function Navbar() {
 
             {/* Bilingual Header */}
             <div className="flex flex-col leading-tight">
-              <div className="text-sm md:text-base font-bold">भारतीय प्रौद्योगिकी संस्थान इंदौर</div>
-              <div className="text-xs md:text-sm text-blue-50">Indian Institute of Technology Indore</div>
+              <div className="text-xl md:text-base font-bold">भारतीय प्रौद्योगिकी संस्थान इंदौर</div>
+              <div className="text-xl md:text-sm text-blue-50">Indian Institute of Technology Indore</div>
             </div>
           </div>
 
           {/* Department Name */}
           <div className="hidden md:flex flex-col text-right text-sm">
-            <div className="font-bold text-accent">धातु विज्ञान और सामग्री विज्ञान</div>
-            <div className="text-xs text-blue-50">Metallurgical Engineering & Materials Science</div>
+            <div className="font-bold text-accent text-xl">धातु अभियांत्रिकी और सामग्री विज्ञान</div>
+            <div className="text-l text-blue-50">Metalllurgical Engineering & Materials Science</div>
           </div>
 
           {/* Quick Links */}

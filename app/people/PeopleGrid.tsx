@@ -71,6 +71,29 @@ export default function PeopleGrid() {
     }
   }
 
+  // build pagination items with single ellipses for large page counts
+  const pageItems: Array<number | "ellipsis"> = (() => {
+    const items: Array<number | "ellipsis"> = []
+    for (let p = 1; p <= totalPages; p++) {
+      const show =
+        totalPages <= 7 ||
+        p === 1 ||
+        p === totalPages ||
+        (p >= page - 1 && p <= page + 1) ||
+        (page <= 2 && p <= 4) ||
+        (page >= totalPages - 1 && p >= totalPages - 3)
+
+      if (show) {
+        items.push(p)
+      } else {
+        if (items[items.length - 1] !== "ellipsis") {
+          items.push("ellipsis")
+        }
+      }
+    }
+    return items
+  })()
+
   return (
     <div>
       {/* Header */}
@@ -190,38 +213,25 @@ export default function PeopleGrid() {
                   </button>
 
                   <div className="flex gap-2">
-                    {Array.from({ length: totalPages }).map((_, i) => {
-                      const p = i + 1
-                      const show =
-                        totalPages <= 7 ||
-                        p === 1 ||
-                        p === totalPages ||
-                        (p >= page - 1 && p <= page + 1) ||
-                        (page <= 2 && p <= 4) ||
-                        (page >= totalPages - 1 && p >= totalPages - 3)
-                      if (!show)
-                        return (
-                          <span
-                            key={p}
-                            className="px-3 py-1 text-sm text-gray-500"
-                          >
-                            …
-                          </span>
-                        )
-                      return (
+                    {pageItems.map((it, i) =>
+                      it === "ellipsis" ? (
+                        <span key={`ell-${i}`} className="px-3 py-1 text-sm text-gray-500">
+                          …
+                        </span>
+                      ) : (
                         <button
-                          key={p}
-                          onClick={() => goToPage(p)}
+                          key={it}
+                          onClick={() => goToPage(it as number)}
                           className={`px-3 py-1 rounded text-sm font-medium ${
-                            p === page
+                            it === page
                               ? "bg-primary text-white"
                               : "border border-primary text-primary"
                           }`}
                         >
-                          {p}
+                          {it}
                         </button>
                       )
-                    })}
+                    )}
                   </div>
 
                   <button

@@ -3,7 +3,9 @@
 import React, { useState } from "react"
 import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
+import Link from "next/link"
 import Footer from "@/components/Footer"
+import EventArchive from "./Event"
 
 export default function Outreach() {
   const [tab, setTab] = useState<1 | 2>(1)
@@ -64,7 +66,7 @@ export default function Outreach() {
       </section>
 
       {/* Outreach Programs (unchanged, kept top) */}
-      <section className="py-16 md:py-20">
+      {/* <section className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <h2 className="section-title text-2xl font-bold text-primary mb-2">Our Outreach Initiatives</h2>
 
@@ -121,13 +123,29 @@ export default function Outreach() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+     
+      {/* Archive Events and Gallery link  */}
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 mb-6">
+        <div className="flex gap-4">
+          <Link href="/outreach/event-archive" className="inline-flex items-center gap-3 px-4 py-2 bg-primary text-white rounded-lg shadow hover:bg-blue-800 transition">
+            <span className="font-semibold">Event Archive</span>
+            <small className="text-sm text-white/90">Past events & details</small>
+          </Link>
 
+          <Link href="/outreach/gallery" className="inline-flex items-center gap-3 px-4 py-2 bg-white text-primary rounded-lg shadow border border-primary hover:bg-gray-50 transition">
+            <span className="font-semibold">Gallery</span>
+            <small className="text-sm text-primary/80">Photos & highlights</small>
+          </Link>
+        </div>
+      </div>
+      </section>
       {/* NEW: Industry / Students toggle (Framer Motion + clean UI) */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between gap-4 mb-6">
-            <h2 className="section-title text-2xl font-bold text-primary mb-2">Industry · Students · Collaboration</h2>
+            <h2 className="section-title text-2xl font-bold text-primary mb-2">Industry Students Collaboration</h2>
 
             {/* tabs */}
             <div className="flex gap-2 bg-white rounded-full p-1 border border-gray-200">
@@ -162,130 +180,130 @@ export default function Outreach() {
                 className="grid lg:grid-cols-3 gap-6"
               >
                 {/* BTech card */}
-              <motion.article
-  variants={cardVariants}
-  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
->
-  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-    B.Tech (Metallurgy & Materials)
-  </h3>
+                <motion.article
+                  variants={cardVariants}
+                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+                >
+                  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+                    B.Tech (Metallurgy & Materials)
+                  </h3>
 
-  {/* IMAGE ON TOP – RESPONSIVE & LARGE */}
-  <div className="w-full flex justify-center mb-4">
-    <img
-      src="/news/convocation.jpg"
-      alt="convocation"
-      className="
+                  {/* IMAGE ON TOP – RESPONSIVE & LARGE */}
+                  <div className="w-full flex justify-center mb-4">
+                    <img
+                      src="/news/convocation.jpg"
+                      alt="convocation"
+                      className="
         w-full 
         max-w-sm        /* prevents over-stretching on large screens */
         h-40 sm:h-48 md:h-56 
         object-cover 
         rounded-lg
       "
-    />
-  </div>
+                    />
+                  </div>
 
-  {/* TEXT BELOW IMAGE */}
-  <div className="text-gray-700 text-sm">
-    <p className="mb-3">
-      Our BTech program is rigorous: ~146.5 credits, 49 courses and 12 labs. The
-      curriculum emphasizes practical laboratory experience and industry-linked
-      projects (including 7th semester project placements).
-    </p>
+                  {/* TEXT BELOW IMAGE */}
+                  <div className="text-gray-700 text-sm">
+                    <p className="mb-3">
+                      Our BTech program is rigorous: ~146.5 credits, 49 courses and 12 labs. The
+                      curriculum emphasizes practical laboratory experience and industry-linked
+                      projects (including 7th semester project placements).
+                    </p>
 
-    <ul className="list-disc ml-5 mt-2 text-sm">
-      <li>Strong laboratory exposure (12 labs)</li>
-      <li>Industry-linked project opportunities</li>
-      <li>Active student participation in national competitions</li>
-    </ul>
-  </div>
-</motion.article>
+                    <ul className="list-disc ml-5 mt-2 text-sm">
+                      <li>Strong laboratory exposure (12 labs)</li>
+                      <li>Industry-linked project opportunities</li>
+                      <li>Active student participation in national competitions</li>
+                    </ul>
+                  </div>
+                </motion.article>
 
 
-               {/* MTech card */}
-<motion.article
-  variants={cardVariants}
-  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
->
-  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-    M.Tech (Materials Science & Engineering)
-  </h3>
+                {/* MTech card */}
+                <motion.article
+                  variants={cardVariants}
+                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+                >
+                  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+                    M.Tech (Materials Science & Engineering)
+                  </h3>
 
-  {/* IMAGE ON TOP */}
-  <div className="w-full flex justify-center mb-4">
-    <img
-      src="/news/irina.jpg"
-      alt="workshop"
-      className="
+                  {/* IMAGE ON TOP */}
+                  <div className="w-full flex justify-center mb-4">
+                    <img
+                      src="/news/irina.jpg"
+                      alt="workshop"
+                      className="
         w-full 
         max-w-sm 
         h-40 sm:h-48 md:h-56 
         object-cover 
         rounded-lg
       "
-    />
-  </div>
+                    />
+                  </div>
 
-  {/* CONTENT */}
-  <div className="text-gray-700 text-sm leading-relaxed">
-    <p className="mb-3">
-      The M.Tech program blends theoretical depth with significant practical laboratory
-      experience. Students complete typically 9 courses and 4 labs, gaining hands-on training
-      along with exposure to research methodologies and industrial practices.
-    </p>
+                  {/* CONTENT */}
+                  <div className="text-gray-700 text-sm leading-relaxed">
+                    <p className="mb-3">
+                      The M.Tech program blends theoretical depth with significant practical laboratory
+                      experience. Students complete typically 9 courses and 4 labs, gaining hands-on training
+                      along with exposure to research methodologies and industrial practices.
+                    </p>
 
-    <ul className="list-disc ml-5 space-y-1">
-      <li>Strong project-driven curriculum integrating practical tools</li>
-      <li>Seminars, workshops and active academic networking opportunities</li>
-      <li>Close research collaboration between faculty, labs and industry partners</li>
-    </ul>
-  </div>
-</motion.article>
+                    <ul className="list-disc ml-5 space-y-1">
+                      <li>Strong project-driven curriculum integrating practical tools</li>
+                      <li>Seminars, workshops and active academic networking opportunities</li>
+                      <li>Close research collaboration between faculty, labs and industry partners</li>
+                    </ul>
+                  </div>
+                </motion.article>
 
 
                 {/* PhD card */}
-<motion.article
-  variants={cardVariants}
-  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
->
-  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-    PhD
-  </h3>
+                <motion.article
+                  variants={cardVariants}
+                  className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+                >
+                  <h3 className="text-xl font-semibold text-primary mb-4 text-center">
+                    PhD
+                  </h3>
 
-  {/* IMAGE ON TOP */}
-  <div className="w-full flex justify-center mb-4">
-    <img
-      src="/group_photo1.jpg"
-      alt="group"
-      className="
+                  {/* IMAGE ON TOP */}
+                  <div className="w-full flex justify-center mb-4">
+                    <img
+                      src="/group_photo1.jpg"
+                      alt="group"
+                      className="
         w-full 
         max-w-sm 
         h-40 sm:h-48 md:h-56 
         object-cover 
         rounded-lg
       "
-    />
-  </div>
+                    />
+                  </div>
 
-  {/* CONTENT */}
-  <div className="text-gray-700 text-sm leading-relaxed">
-    <p className="mb-3">
-      The PhD program at IIT Indore emphasizes independent, research-centric learning with
-      annual performance reviews, multidisciplinary collaborations and access to advanced
-      research facilities. Students receive fellowship support and opportunities for
-      international exposure.
-    </p>
+                  {/* CONTENT */}
+                  <div className="text-gray-700 text-sm leading-relaxed">
+                    <p className="mb-3">
+                      The PhD program at IIT Indore emphasizes independent, research-centric learning with
+                      annual performance reviews, multidisciplinary collaborations and access to advanced
+                      research facilities. Students receive fellowship support and opportunities for
+                      international exposure.
+                    </p>
 
-    <ul className="list-disc ml-5 space-y-1">
-      <li>Institute-supported travel grants for national & international conferences</li>
-      <li>Active participation in student-run research symposiums and MA chapter</li>
-      <li>Strong industrial relevance with high-impact research outputs</li>
-    </ul>
-  </div>
-</motion.article>
+                    <ul className="list-disc ml-5 space-y-1">
+                      <li>Institute-supported travel grants for national & international conferences</li>
+                      <li>Active participation in student-run research symposiums and MA chapter</li>
+                      <li>Strong industrial relevance with high-impact research outputs</li>
+                    </ul>
+                  </div>
+                </motion.article>
 
                 {/* Footprints / logos card (full width on small, grid on larger) */}
-                <motion.div
+                {/* <motion.div
                   variants={cardVariants}
                   className="lg:col-span-3 bg-white rounded-lg p-6 border border-gray-100 shadow-sm min-h-[420px] flex flex-col"
                 >
@@ -326,7 +344,7 @@ export default function Outreach() {
                       </motion.div>
                     ))}
                   </div>
-                </motion.div>
+                </motion.div> */}
 
               </motion.div>
             )}
