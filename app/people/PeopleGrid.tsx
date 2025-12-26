@@ -7,8 +7,6 @@ import PersonCard from "./PersonCard"
 import PersonModal from "./PersonModal"
 import StudentsSection from "./StudentSec"
 
-const PAGE_SIZE = 6
-
 export default function PeopleGrid() {
   const [selectedCategory, setSelectedCategory] =
     useState<"all" | "faculty" | "staff" | "students">("all")
@@ -17,7 +15,6 @@ export default function PeopleGrid() {
   const [modalPerson, setModalPerson] = useState<Person | null>(null)
 
   const [searchQuery, setSearchQuery] = useState("")
-  const [page, setPage] = useState(1)
 
   // decide if field filter should show for the current selection:
   const showFieldFilter = useMemo(() => {
@@ -36,8 +33,14 @@ export default function PeopleGrid() {
     const effectiveField = showFieldFilter ? selectedField : "all"
 
     return PEOPLE.filter((person) => {
-      const categoryMatch =
-        selectedCategory === "all" ? true : person.category === selectedCategory
+      // For "all" category, only show faculty and PhD students
+      let categoryMatch: boolean
+      if (selectedCategory === "all") {
+        categoryMatch = person.category === "faculty" || 
+                        (person.category === "students" && person.title?.toLowerCase().includes("phd"))
+      } else {
+        categoryMatch = person.category === selectedCategory
+      }
 
       const fieldMatch =
         effectiveField === "all" ? true : person.field === effectiveField
@@ -52,47 +55,7 @@ export default function PeopleGrid() {
     })
   }, [selectedCategory, selectedField, searchQuery, showFieldFilter])
 
-  useEffect(
-    () => setPage(1),
-    [selectedCategory, selectedField, searchQuery]
-  )
-
   const total = filteredPeople.length
-  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE))
-  const startIndex = (page - 1) * PAGE_SIZE
-  const endIndex = Math.min(total, page * PAGE_SIZE)
-  const pageSlice = filteredPeople.slice(startIndex, endIndex)
-
-  const goToPage = (p: number) => {
-    const clamped = Math.max(1, Math.min(totalPages, p))
-    setPage(clamped)
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 200, behavior: "smooth" })
-    }
-  }
-
-  // build pagination items with single ellipses for large page counts
-  const pageItems: Array<number | "ellipsis"> = (() => {
-    const items: Array<number | "ellipsis"> = []
-    for (let p = 1; p <= totalPages; p++) {
-      const show =
-        totalPages <= 7 ||
-        p === 1 ||
-        p === totalPages ||
-        (p >= page - 1 && p <= page + 1) ||
-        (page <= 2 && p <= 4) ||
-        (page >= totalPages - 1 && p >= totalPages - 3)
-
-      if (show) {
-        items.push(p)
-      } else {
-        if (items[items.length - 1] !== "ellipsis") {
-          items.push("ellipsis")
-        }
-      }
-    }
-    return items
-  })()
 
   return (
     <div>
@@ -164,10 +127,10 @@ export default function PeopleGrid() {
           <div className="text-sm text-primary hidden md:block">
             Showing{" "}
             <span className="font-semibold">
-              {total === 0 ? 0 : startIndex + 1}
+              {total === 0 ? 0 : 1}
             </span>
             –
-            <span className="font-semibold"> {endIndex}</span> of{" "}
+            <span className="font-semibold"> {total}</span> of{" "}
             <span className="font-semibold">{total}</span> results
           </div>
         </div>
@@ -185,8 +148,8 @@ export default function PeopleGrid() {
           ) : (
             // faculty & staff stay with card grid + pagination
             <>
-              <div className="grid md:grid-cols-3 gap-8">
-                {pageSlice.map((person) => (
+              <div className="grid md:grid-cols-4 gap-6">
+                {filteredPeople.map((person) => (
                   <PersonCard
                     key={person.id}
                     person={person}
@@ -194,62 +157,6 @@ export default function PeopleGrid() {
                   />
                 ))}
               </div>
-
-              {totalPages > 1 && (
-                <div className="mt-8 flex items-center justify-center gap-3">
-                  <button
-                    onClick={() => goToPage(1)}
-                    disabled={page === 1}
-                    className="px-3 py-1 rounded border border-primary text-primary disabled:opacity-50"
-                  >
-                    « First
-                  </button>
-                  <button
-                    onClick={() => goToPage(page - 1)}
-                    disabled={page === 1}
-                    className="px-3 py-1 rounded border border-primary text-primary disabled:opacity-50"
-                  >
-                    ‹ Prev
-                  </button>
-
-                  <div className="flex gap-2">
-                    {pageItems.map((it, i) =>
-                      it === "ellipsis" ? (
-                        <span key={`ell-${i}`} className="px-3 py-1 text-sm text-gray-500">
-                          …
-                        </span>
-                      ) : (
-                        <button
-                          key={it}
-                          onClick={() => goToPage(it as number)}
-                          className={`px-3 py-1 rounded text-sm font-medium ${
-                            it === page
-                              ? "bg-primary text-white"
-                              : "border border-primary text-primary"
-                          }`}
-                        >
-                          {it}
-                        </button>
-                      )
-                    )}
-                  </div>
-
-                  <button
-                    onClick={() => goToPage(page + 1)}
-                    disabled={page === totalPages}
-                    className="px-3 py-1 rounded border border-primary text-primary disabled:opacity-50"
-                  >
-                    Next ›
-                  </button>
-                  <button
-                    onClick={() => goToPage(totalPages)}
-                    disabled={page === totalPages}
-                    className="px-3 py-1 rounded border border-primary text-primary disabled:opacity-50"
-                  >
-                    Last »
-                  </button>
-                </div>
-              )}
             </>
           )}
 

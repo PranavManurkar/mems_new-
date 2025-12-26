@@ -1,39 +1,86 @@
 "use client"
-import React from "react"
-import { Person } from "./type";
-
+import React, { useState } from "react"
+import { Person } from "./type"
 
 export default function PersonCard({ person, onMore }: { person: Person; onMore: (p: Person) => void }) {
-    return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 border-4 border-primary hover:shadow-xl hover:border-accent group" >
-            <div className="h-72 bg-gray-100 relative flex items-center justify-center p-4" >
-                <div className="w-full h-full flex items-center justify-center" >
-                    <img src={person.image || "/placeholder.svg"} alt={person.name} className="max-h-full max-w-full object-contain" />
-                </div>
-                < div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" > </div>
-            </div>
+  const [isHovered, setIsHovered] = useState(false)
 
+  return (
+    <div
+      className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-gray-300 hover:border-primary group h-full flex flex-col"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Image Container with Hover Overlay */}
+      <div className="relative h-56 bg-gray-100 flex items-center justify-center overflow-hidden">
+        {/* Image */}
+        <img
+          src={person.image || "/placeholder.svg"}
+          alt={person.name}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
 
-            < div className="p-6" >
-                <h3 className="text-xl font-bold text-primary mb-1" > {person.name} </h3>
-                < p className="text-gray-600 font-semibold mb-1 text-sm" > {person.title} </p>
-                < p className="text-gray-700 mb-4 text-sm" > {person.specialization} </p>
+        {/* Hover Overlay - Research Interests */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-b from-green-800 via-green-700 to-green-900 flex flex-col items-center justify-between p-4 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* Research Interests Section */}
+          <div className="text-center flex-1 flex flex-col justify-center">
+            <h4 className="text-white font-bold text-xs mb-2">Research Interests:</h4>
+            <p className="text-white text-xs leading-relaxed font-semibold">
+              {person.specialization}
+            </p>
+          </div>
 
-
-                < div className="flex gap-2 flex-wrap mb-4" >
-                    <span className="text-xs bg-blue-100 text-primary px-3 py-1 rounded-full font-semibold" > {person.category} </span>
-                    {person.field ? (
-                        <span className="text-xs bg-amber-100 text-amber-900 px-3 py-1 rounded-full font-semibold">{person.field}</span>
-                    ) : null}
-                </div>
-
-
-                < div className="flex gap-2" >
-                    <button onClick={() => onMore(person)} className="flex-1 text-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-900 transition-all duration-300 font-semibold" >
-                        More info
-                    </button>
-                </div>
-            </div>
+          {/* Visit Webpage Button */}
+          {person.profiles && person.profiles.length > 0 ? (
+            <a
+              href={person.profiles[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-3 rounded text-center transition-all duration-300 text-sm"
+            >
+              Visit Webpage
+            </a>
+          ) : (
+            <button
+              onClick={() => onMore(person)}
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-3 rounded text-center transition-all duration-300 text-sm"
+            >
+              View Profile
+            </button>
+          )}
         </div>
-    )
+      </div>
+
+      {/* Card Content - Always Visible */}
+      <div className="p-4 flex-1 flex flex-col">
+        <div className="text-center">
+          {/* Name */}
+          <h3 className="text-lg font-bold text-gray-800 mb-1">{person.name}</h3>
+          
+          {/* Title */}
+          <p className="text-xs text-gray-600 font-semibold mb-3">{person.title}</p>
+
+          {/* Contact Info */}
+          <div className="space-y-1 text-xs text-gray-700">
+            {person.email && (
+              <p>
+                <span className="font-semibold">Email:</span> <br />
+                <span className="font-mono text-xs text-gray-600 break-all">{person.email}</span>
+              </p>
+            )}
+            {person.phone && (
+              <p>
+                <span className="font-semibold">Phone:</span> <br />
+                <span className="font-mono text-xs text-gray-600">{person.phone}</span>
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }

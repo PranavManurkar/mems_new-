@@ -303,7 +303,7 @@ export default function Outreach() {
                 </motion.article>
 
                 {/* Footprints / logos card (full width on small, grid on larger) */}
-                {/* <motion.div
+                <motion.div
                   variants={cardVariants}
                   className="lg:col-span-3 bg-white rounded-lg p-6 border border-gray-100 shadow-sm min-h-[420px] flex flex-col"
                 >
@@ -344,7 +344,7 @@ export default function Outreach() {
                       </motion.div>
                     ))}
                   </div>
-                </motion.div> */}
+                </motion.div>
 
               </motion.div>
             )}

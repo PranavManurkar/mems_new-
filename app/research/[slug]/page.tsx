@@ -30,7 +30,7 @@ export default function ResearchAreaPage({ params }: Props) {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* page header */}
             <section className="bg-gradient-to-r from-primary via-blue-900 to-primary text-white py-8">
@@ -98,7 +98,7 @@ export default function ResearchAreaPage({ params }: Props) {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
         </main>
     )
 }

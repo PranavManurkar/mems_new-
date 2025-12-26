@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import Image from "next/image"
 
 export default function HODDesk() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,16 +11,17 @@ export default function HODDesk() {
   return (
     <section className="py-16 bg-gradient-to-r from-primary/10 via-blue-50 to-accent/10 border-b-4 border-primary">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 className="section-title text-2xl font-bold text-primary mb-2 ml-20">HOD's Desk</h2>
+        <h2 className="section-title text-3xl font-bold text-primary mb-2">HOD's Desk</h2>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* HOD Image */}
-          <div className="flex justify-center md:justify-center">
-            <div className="relative w-72 md:w-96 h-80 md:h-96 rounded-xl overflow-hidden shadow-xl border-4 border-primary hover:shadow-2xl transition-shadow duration-300">
-              <img
-                src="/faculty/prof20.jpeg"
-                alt="Prof. Ajay Kumar Kushwaha"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          <div className="flex justify-start md:justify-center">
+            <div className="relative w-60 md:w-68 h-60 md:h-80 rounded-xl overflow-hidden shadow-xl border-4 border-primary hover:shadow-2xl transition-shadow duration-300 mx-auto">
+              <Image
+              src="/faculty/prof20.jpeg"
+              alt="Prof. Ajay Kumar Kushwaha"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           </div>
@@ -61,6 +64,13 @@ export default function HODDesk() {
             >
               Read Full Message
             </button>
+
+            <Link
+              href="/former-hods"
+              className="mt-6 ml-3 inline-block px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-orange-600 transition-all duration-300 hover:shadow-lg"
+            >
+              Former HODs
+            </Link>
           </div>
         </div>
       </div>

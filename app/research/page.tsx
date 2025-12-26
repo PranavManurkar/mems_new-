@@ -26,42 +26,56 @@ export default function Research() {
       {/* Research cards */}
       <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {researchAreas.map((area) => (
               <Link
                 key={area.slug}
                 href={`/research/${area.slug}`}
-                className="group block bg-white border-2 border-primary rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 h-[260px] flex flex-col"
+                className="group block bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                 aria-label={`Read about ${area.title}`}
               >
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 text-4xl leading-none">{area.icon ?? "🔹"}</div>
-
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lg text-primary leading-snug">
-                      {area.title}
-                    </h3>
-                  </div>
+                {/* Image Container - Large image at top */}
+                <div className="w-full h-48 bg-gray-100 overflow-hidden">
+                  {area.image ? (
+                    <img
+                      src={area.image}
+                      alt={area.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-blue-100">
+                      {area.icon ?? "🔹"}
+                    </div>
+                  )}
                 </div>
 
-                {/* description area - occupies remaining space and is clamped to 4 lines */}
-                <div className="mt-3 flex-1">
-                  <p
-                    className="text-sm text-gray-600 leading-relaxed"
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 4,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {area.description}
-                  </p>
+                {/* Title */}
+                <div className="px-5 pt-4 pb-2">
+                  <h3 className="font-bold text-lg text-gray-800 leading-snug">
+                    {area.title}
+                  </h3>
                 </div>
 
-                {/* optional small footer / CTA area so cards stay balanced */}
-                <div className="mt-4">
-                  <span className="inline-block text-xs font-medium rounded-full px-3 py-1 border border-primary text-primary">
+                {/* Research Topics/Description List */}
+                <div className="px-5 pb-4 flex-1">
+                  {area.topics && Array.isArray(area.topics) ? (
+                    <ul className="space-y-1">
+                      {area.topics.map((topic, idx) => (
+                        <li key={idx} className="text-sm text-gray-700 leading-relaxed">
+                          {topic}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {area.description}
+                    </p>
+                  )}
+                </div>
+
+                {/* Read More Button */}
+                <div className="px-5 pb-5">
+                  <span className="inline-block text-sm font-semibold rounded-full px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
                     Read more →
                   </span>
                 </div>

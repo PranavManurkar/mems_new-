@@ -6,6 +6,7 @@ import HODDesk from "@/components/hod-desk"
 import GalleryCarousel from "@/components/gallery-carousel"
 import { LoadingSpinner, SectionLoader, CardLoader } from "@/components/LoadingSpinner"
 import { ErrorBoundary } from "@/components/ErrorBoundary"
+import CountUp from "react-countup";
 
 // Loading fallbacks for different sections
 function HeroLoader() {
@@ -137,15 +138,15 @@ function ResearchFocusArea() {
   {researchAreas.map((area, index) => (
     <div
       key={index}
-      className={`bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 ${area.border}`}
+      className={`bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-l-4 ${area.border}`}
     >
-      <h3 className="text-xl font-bold text-primary mb-3">
+      <h3 className="text-lg font-bold text-primary ">
         {area.title}
       </h3>
 
-      <p className="text-gray-700 leading-relaxed">
+      {/* <p className="text-gray-700 leading-relaxed">
         {area.desc}
-      </p>
+      </p> */}
     </div>
   ))}
 </div>
@@ -252,26 +253,43 @@ function StatsSection() {
     <section className="py-16 md:py-20 bg-gradient-to-r from-primary via-blue-900 to-primary text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+          {/* Faculty */}
           <div className="space-y-2 p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-bold text-accent">15+</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent">
+              <CountUp end={15} duration={2.5} />+
+            </div>
             <p className="text-lg font-semibold">Faculty Members</p>
           </div>
+
+          {/* PhD Students */}
           <div className="space-y-2 p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-bold text-accent">100+</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent">
+              <CountUp end={100} duration={2.5} />+
+            </div>
             <p className="text-lg font-semibold">PhD Students</p>
           </div>
+
+          {/* Publications */}
           <div className="space-y-2 p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-bold text-accent">50+</div>
-            <p className="text-lg font-semibold">Publications/Year</p>
+            <div className="text-4xl md:text-5xl font-bold text-accent">
+              <CountUp end={50} duration={2.5} />+
+            </div>
+            <p className="text-lg font-semibold">Publications / Year</p>
           </div>
+
+          {/* Established */}
           <div className="space-y-2 p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-300">
-            <div className="text-4xl md:text-5xl font-bold text-accent">2016</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent">
+              <CountUp start={2000} end={2016} duration={2} />
+            </div>
             <p className="text-lg font-semibold">Established</p>
           </div>
+
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default function Home() {

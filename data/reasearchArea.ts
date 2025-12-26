@@ -7,6 +7,8 @@ export type ResearchArea = {
   keyPoints: string[]
   faculties: string[]
   icon?: string
+  image?: string
+  topics?: string[]
 }
 
 export const researchAreas: ResearchArea[] = [
